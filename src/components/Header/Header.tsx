@@ -1,0 +1,44 @@
+import styles from './Header.module.scss';
+import {ReactComponent as Logo} from '../../assets/logo.svg';
+import {Link} from 'react-router-dom';
+import {ReactComponent as Inst} from '../../assets/inst.svg';
+import {ReactComponent as Tiktok} from '../../assets/tiktok.svg';
+import {ReactComponent as Basket} from '../../assets/basket.svg';
+
+export default function Header(){
+    return(
+        <>
+            <div className={styles.adv}>
+                <p>Скидка 30% до конца января</p>
+            </div>
+            <div className={styles.header}>
+                <div className={styles.left}>
+                    <Link to={'/'}>
+                        <Logo/>
+                    </Link>
+                    <div className={styles.social}>
+                        <a href="/" target='_blank'>
+                            <Inst/>
+                        </a>
+                        <a href="/" target='_blank'>
+                            <Tiktok/>
+                        </a>
+                    </div>
+                </div>
+                <div className={styles.right}>
+                    <div className={styles.menu}>
+                        <Link to={'/'} className={styles.menu__item}>
+                            Доставка
+                        </Link>
+                        <Link to={'/'} className={styles.menu__item}>
+                            Оплата
+                        </Link>
+                    </div>
+                    <Link to={'/'}>
+                        <Basket/>
+                    </Link>
+                </div>
+            </div>
+        </>
+    )
+}

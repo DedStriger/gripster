@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    height: 50px;
+    background: linear-gradient(90.07deg, #F08223 7.74%, #EA592A 98.68%);
+
+    p{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29px;
+    }
+}

@@ -1,0 +1,109 @@
+.container{
+    display: flex;
+    align-items: center;
+    gap: 45px;
+
+    &:nth-child(2){
+        flex-direction: row-reverse;
+        margin-top: 60px;
+
+         .name{
+            text-align: right;
+        }
+
+        .advantages{
+            justify-content: flex-end;
+        }
+
+        .button{
+            margin-left: auto;
+        }
+    }
+}
+
+.card{
+    background: linear-gradient(111.26deg, #F08223 6.41%, #EA592A 71.94%);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    max-width: 370px;
+    height: 462px;
+
+    img{
+        max-width: 100%;
+        width: 100%;
+    }
+
+    &__pro{
+        filter: drop-shadow(0px 10px 30px rgba(234, 89, 42, 0.5)) drop-shadow(0px 0px 20px rgba(234, 89, 42, 0.6));
+        padding: 20px;
+    }
+}
+
+.content{
+    flex-shrink: 0;
+}
+
+.name{
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 49px;
+    margin-bottom: 45px;
+    color: var(--white);
+
+    span{
+        color: var(--orange);
+    }
+}
+
+.advantages{
+        &:not(:last-child){
+            margin-bottom: 30px;
+        }
+
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    
+
+    &__line{
+        background: var(--orange);
+        border-radius: 2px;
+        display: block;
+        height: 2px;
+        width: 19px;
+        flex-shrink: 0;
+    }
+
+    &__text{
+        font-size: 24px;
+        line-height: 24px;
+        color: var(--white);
+    }
+}
+
+.button{
+    cursor: pointer;
+    height: 50px;
+    width: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 45px;
+    border-radius: 6px;
+    border: 1px solid var(--orange);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+    color: var(--orange);
+    transition: all .3s;
+
+    &:hover{
+        background: var(--orange);
+        color: var(--white);
+    }
+}
