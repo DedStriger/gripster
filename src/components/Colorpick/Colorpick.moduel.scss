@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.circle{
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    border: 2px solid transparent;
+
+    &__active{
+        border-color: var(--white);
+    }
+
+    &:nth-child(1){
+        background: #6f2e2a;
+    }
+
+    &:nth-child(2){
+        background: #6294b1;
+    }
+
+    &:nth-child(3){
+        background: #43432b;
+    }
+}

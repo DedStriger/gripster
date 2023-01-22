@@ -60,3 +60,24 @@
         }
     }
 }
+
+@media(max-width: 768px){
+    .menu{
+        display: none;
+    }
+    .adv{
+        height: auto;
+        min-height: 50px;
+
+        p{
+            font-size: 20px;
+            line-height: 22px;
+        }
+    }
+}
+
+@media(max-width: 480px){
+    .header{
+        flex-wrap: wrap;
+    }
+}

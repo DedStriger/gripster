@@ -29,6 +29,7 @@
     justify-content: center;
     padding: 50px;
     max-width: 370px;
+    flex-shrink: 0;
     height: 462px;
 
     img{
@@ -105,5 +106,80 @@
     &:hover{
         background: var(--orange);
         color: var(--white);
+    }
+}
+
+@media(max-width: 1000px){
+    .content{
+        width: 100%;
+        padding: 15px;
+    }
+    .container{
+        flex-direction: column !important;
+        gap: 20px;
+        padding-top: 15px;
+        background: linear-gradient(111.26deg, #F08223 6.41%, #EA592A 71.94%);
+        border-radius: 10px;
+
+        &:nth-child(2){
+            padding-top: 0;
+            filter: drop-shadow(0px 10px 30px rgba(234, 89, 42, 0.5)) drop-shadow(0px 0px 20px rgba(234, 89, 42, 0.6));
+            margin-top: 30px;
+            .name{
+                text-align: center;
+            }
+    
+            .advantages{
+                justify-content: center;
+            }
+    
+            .button{
+                color: #fff;
+                margin: 0 -15px -15px;
+            }
+        }
+
+        .name{
+            text-align: center;
+            margin-bottom: 20px;
+            span{
+                color: var(--black);
+            }
+        }
+
+        .advantages{
+            justify-content: center;
+            &__line{
+                display: none;
+            }
+
+            &__text{
+                text-align: center;
+                font-size: 18px;
+            }
+        }
+
+        .button{
+            width: calc(100% + 30px);
+            color: #fff;
+            max-width: none;
+            height: 60px;
+            border-radius: 0px 0px 10px 10px;
+            border: none;
+            border-top: 1px solid #fff;
+            margin: 0 -15px -15px;
+        }
+    }
+
+    .card{
+        background: none;
+        padding: 0;
+        height: 320px;
+        margin-bottom: 15px;
+
+        img{
+            height: 100%;
+            display: block;
+        }
     }
 }

@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {ReactComponent as Inst} from '../../assets/inst.svg';
 import {ReactComponent as Tiktok} from '../../assets/tiktok.svg';
 import {ReactComponent as Basket} from '../../assets/basket.svg';
+import { DELIVERY_URL, CONTACTS_URL } from '../../utils/links';
 
 export default function Header(){
     return(
@@ -20,18 +21,18 @@ export default function Header(){
                         <a href="/" target='_blank'>
                             <Inst/>
                         </a>
-                        <a href="/" target='_blank'>
+                        <a href="https://www.tiktok.com/@gripsterpro.ru" target='_blank'>
                             <Tiktok/>
                         </a>
                     </div>
                 </div>
                 <div className={styles.right}>
                     <div className={styles.menu}>
-                        <Link to={'/'} className={styles.menu__item}>
+                        <Link to={{pathname: DELIVERY_URL}} className={styles.menu__item}>
                             Доставка
                         </Link>
-                        <Link to={'/'} className={styles.menu__item}>
-                            Оплата
+                        <Link to={{pathname: CONTACTS_URL}} className={styles.menu__item}>
+                            Контакты
                         </Link>
                     </div>
                     <Link to={'/'}>
