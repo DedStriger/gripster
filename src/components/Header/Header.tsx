@@ -4,9 +4,12 @@ import {Link} from 'react-router-dom';
 import {ReactComponent as Inst} from '../../assets/inst.svg';
 import {ReactComponent as Tiktok} from '../../assets/tiktok.svg';
 import {ReactComponent as Basket} from '../../assets/basket.svg';
-import { DELIVERY_URL, CONTACTS_URL } from '../../utils/links';
+import { DELIVERY_URL, CONTACTS_URL, BASKET_URL } from '../../utils/links';
+import { useSelector } from 'react-redux';
+import { rootBasket } from '../../service/basketReducer';
 
 export default function Header(){
+    const basketTotal = useSelector((store: {basket: rootBasket}) => store.basket.total)
     return(
         <>
             <div className={styles.adv}>
@@ -35,7 +38,8 @@ export default function Header(){
                             Контакты
                         </Link>
                     </div>
-                    <Link to={'/'}>
+                    <Link to={{pathname: BASKET_URL}} className={styles.basket}>
+                        {basketTotal > 0 && <span className={styles.basket__total}>{basketTotal}</span>}
                         <Basket/>
                     </Link>
                 </div>

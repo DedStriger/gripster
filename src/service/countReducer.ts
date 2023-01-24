@@ -1,4 +1,4 @@
-import { GR_MINUS, GR_PLUS } from "./constant";
+import { GR_MINUS, GR_PLUS, GR_PRO_MINUS, GR_PRO_PLUS } from "./constant";
 
 const initialState = {
     gripster: {
@@ -39,6 +39,24 @@ const initialState = {
                 }
             }
         }
+        case GR_PRO_PLUS: {
+          return {
+              ...state,
+              gripsterPro: {
+                  ...state.gripsterPro,
+                  count: state.gripsterPro.count++ >= 10 ? 10 : state.gripsterPro.count++
+              }
+          }
+      }
+      case GR_PRO_MINUS: {
+          return {
+              ...state,
+              gripsterPro: {
+                  ...state.gripsterPro,
+                  count: state.gripsterPro.count-- <= 1 ? 1 : state.gripsterPro.count--
+              }
+          }
+      }
         default:
             return state
     }
