@@ -41,6 +41,10 @@
 }
 
 .price{
+    flex-wrap: wrap;
+}
+
+.price{
     span{
         font-size: 24px;
         line-height: 24px;
@@ -77,5 +81,25 @@
     .container{
         margin: 20px;
         width: auto;
+        margin-top: 40px;
+    }
+}
+
+@media(max-width: 900px){
+    .container{
+        padding: 15px;
+    }
+    .row{
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .pay{
+        flex-direction: column;
+        width: 100%;
+
+        button{
+            width: 100%;
+        }
     }
 }

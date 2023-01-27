@@ -8,8 +8,8 @@ const initialState = {
     },
     gripsterPro: {
       count: 1,
-      price: 999,
-      oldPrice: 1429,
+      price: 1399,
+      oldPrice: 1999,
     }
   }
 

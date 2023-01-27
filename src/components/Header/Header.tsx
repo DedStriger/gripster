@@ -7,13 +7,15 @@ import {ReactComponent as Basket} from '../../assets/basket.svg';
 import { DELIVERY_URL, CONTACTS_URL, BASKET_URL } from '../../utils/links';
 import { useSelector } from 'react-redux';
 import { rootBasket } from '../../service/basketReducer';
+import { useMemo } from 'react';
 
 export default function Header(){
-    const basketTotal = useSelector((store: {basket: rootBasket}) => store.basket.total)
+    const basket = useSelector((store: {basket: rootBasket}) => store.basket);
+    const basketTotal = useMemo(() => basket.gr + basket.grPro.reduce((acc, i) => acc + i.count, 0), [basket])
     return(
         <>
             <div className={styles.adv}>
-                <p>Скидка 30% до конца января</p>
+                <p>Скидка 30% до конца марта</p>
             </div>
             <div className={styles.header}>
                 <div className={styles.left}>

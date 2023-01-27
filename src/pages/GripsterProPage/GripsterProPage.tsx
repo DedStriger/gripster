@@ -1,5 +1,5 @@
-import GripsterPageView from "../GripsterPage/view/GripsterPageView";
+import GripsterProPageView from "./view/GripsterProPageView";
 
 export default function GripsterProPage(){
-    return <GripsterPageView />
+    return <GripsterProPageView />
 }
