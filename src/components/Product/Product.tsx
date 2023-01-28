@@ -13,7 +13,7 @@ export default function Product({name, adventages, img, link, pro}:ProductProps)
     return(
         <div className={styles.container}>
             <div className={`${styles.card} ${pro && styles.card__pro}`}>
-                <img src={img.x} srcSet={img.x2} alt='product' />
+                <img src={img.x} srcSet={img.x2 + ' 2x'} alt='product' />
             </div>
             <div className={styles.content}>
                 <Link to={{pathname: link}}  className={styles.name} dangerouslySetInnerHTML={{__html: name}} />

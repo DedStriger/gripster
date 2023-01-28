@@ -23,7 +23,7 @@ export default function Header(){
                         <Logo/>
                     </Link>
                     <div className={styles.social}>
-                        <a href="/" rel="noreferrer" target='_blank'>
+                        <a href="https://instagram.com/gripsterpro.ru?igshid=YmMyMTA2M2Y=" rel="noreferrer" target='_blank'>
                             <Inst/>
                         </a>
                         <a href="https://www.tiktok.com/@gripsterpro.ru" rel="noreferrer" target='_blank'>
