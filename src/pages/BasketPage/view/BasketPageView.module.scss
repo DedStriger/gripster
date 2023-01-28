@@ -28,8 +28,20 @@
     gap: 15px;
     padding: 15px;
     border-radius: 10px;
-    margin-bottom: 15px;
     background: linear-gradient(105.4deg, #F08223 6.72%, #EA592A 74.12%);
+    width: 100%;
+
+    &__row{
+        gap: 15px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+
+        .close{
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+    }
 }
 
 .total{

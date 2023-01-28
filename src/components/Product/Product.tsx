@@ -13,10 +13,10 @@ export default function Product({name, adventages, img, link, pro}:ProductProps)
     return(
         <div className={styles.container}>
             <div className={`${styles.card} ${pro && styles.card__pro}`}>
-                <img src={img.x} srcSet={img.x2} />
+                <img src={img.x} srcSet={img.x2} alt='product' />
             </div>
             <div className={styles.content}>
-                <h2 className={styles.name} dangerouslySetInnerHTML={{__html: name}} />
+                <Link to={{pathname: link}}  className={styles.name} dangerouslySetInnerHTML={{__html: name}} />
                 {adventages.map(a => (
                     <div className={styles.advantages} key={a}>
                         <span className={styles.advantages__line}></span>

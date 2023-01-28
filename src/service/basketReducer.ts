@@ -40,7 +40,7 @@ export default function basketReducer(state = initialState, action: Action){
                 gr: 0
             } : {
                 ...state,
-                grPro: [...state.grPro.filter(i => i.color === action.color)]
+                grPro: [...state.grPro.filter(i => i.color !== action.color)]
             }
         }
         default:

@@ -23,10 +23,10 @@ export default function Header(){
                         <Logo/>
                     </Link>
                     <div className={styles.social}>
-                        <a href="/" target='_blank'>
+                        <a href="/" rel="noreferrer" target='_blank'>
                             <Inst/>
                         </a>
-                        <a href="https://www.tiktok.com/@gripsterpro.ru" target='_blank'>
+                        <a href="https://www.tiktok.com/@gripsterpro.ru" rel="noreferrer" target='_blank'>
                             <Tiktok/>
                         </a>
                     </div>
