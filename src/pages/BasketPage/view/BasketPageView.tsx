@@ -3,11 +3,12 @@ import styles from './BasketPageView.module.scss';
 import {ReactComponent as Cross} from '../../../assets/cross.svg';
 import { useDispatch } from 'react-redux';
 import { DELETE } from '../../../service/constant';
+import {PAYMENT_URL} from '../../../utils/links'
+import { Link } from 'react-router-dom';
 
 export type BasketPageViewProps = {
     rows: Rows[];
     total: number;
-    onDelete: () => void;
 }
 
 type Rows = {
@@ -45,7 +46,7 @@ export default function BasketPageView({rows, total}:BasketPageViewProps){
             <div className={styles.total}>
                 <span><b>Итого</b></span>
                 <span>{total} ₽</span>
-                {total > 0 && <button>Оплатить</button>}
+                {total > 0 && <Link className={styles.total__button} to={{pathname: PAYMENT_URL}}>Оплатить</Link>}
             </div>
         </div>
     )

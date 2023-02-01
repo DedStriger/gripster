@@ -15,5 +15,5 @@ export default function BasketPage(){
     const total = useMemo(() => {
         return  store.basket.gr * store.count.gripster.price + store.basket.grPro.reduce((acc, i) => acc + (i.count * store.count.gripsterPro.price), 0);
     }, [store])
-    return <BasketPageView total={total} rows={info.rows} onDelete={() => {}} />
+    return <BasketPageView total={total} rows={info.rows} />
 }

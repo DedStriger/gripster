@@ -5,13 +5,10 @@ import {ReactComponent as Inst} from '../../assets/inst.svg';
 import {ReactComponent as Tiktok} from '../../assets/tiktok.svg';
 import {ReactComponent as Basket} from '../../assets/basket.svg';
 import { DELIVERY_URL, CONTACTS_URL, BASKET_URL } from '../../utils/links';
-import { useSelector } from 'react-redux';
-import { rootBasket } from '../../service/basketReducer';
-import { useMemo } from 'react';
+import { useBasketTotal } from '../../hooks/useBasketTotal';
 
 export default function Header(){
-    const basket = useSelector((store: {basket: rootBasket}) => store.basket);
-    const basketTotal = useMemo(() => basket.gr + basket.grPro.reduce((acc, i) => acc + i.count, 0), [basket])
+    const basketTotal = useBasketTotal();
     return(
         <>
             <div className={styles.adv}>
