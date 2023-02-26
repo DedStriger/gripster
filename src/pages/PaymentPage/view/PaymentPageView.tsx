@@ -10,14 +10,14 @@ type Error = {
     text: string;
 } | undefined;
 
-enum PaymentState {
+export enum PaymentState {
     Form,
     Success,
     Error
 }
 
-export default function PaymentPageView(){
-    const [state, setState] = useState(PaymentState.Form)
+export default function PaymentPageView({isType}: {isType: PaymentState | undefined}){
+    const [state, setState] = useState(isType || PaymentState.Form)
     const [error, setError] = useState<Error>(undefined)
     const basket = useSelector((store: {basket: rootBasket}) => store.basket)
     const formRef = useRef<HTMLFormElement>(null)
