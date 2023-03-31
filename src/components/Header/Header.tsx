@@ -12,7 +12,7 @@ export default function Header(){
     return(
         <>
             <div className={styles.adv}>
-                <p>Скидка 30% до конца марта</p>
+                <p>Скидка 30% до конца апреля</p>
             </div>
             <div className={styles.header}>
                 <div className={styles.left}>
@@ -23,7 +23,7 @@ export default function Header(){
                         <a href="https://instagram.com/gripsterpro.ru?igshid=YmMyMTA2M2Y=" rel="noreferrer" target='_blank'>
                             <Inst/>
                         </a>
-                        <a href="https://www.tiktok.com/@gripsterpro.ru" rel="noreferrer" target='_blank'>
+                        <a href="https://vk.com/gripsterpro" rel="noreferrer" target='_blank'>
                             <Tiktok/>
                         </a>
                     </div>
