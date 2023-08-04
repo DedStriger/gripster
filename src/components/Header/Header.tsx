@@ -12,7 +12,7 @@ export default function Header(){
     return(
         <>
             <div className={styles.adv}>
-                <p>Скидка 30% до конца июля</p>
+                <p>Скидка 30% до конца года</p>
             </div>
             <div className={styles.header}>
                 <div className={styles.left}>
