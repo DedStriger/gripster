@@ -14,7 +14,7 @@ export default observer(function PaymentPageView({
 }) {
   const [state, setState] = useState(isType || PaymentState.Form);
   const [error, setError] = useState<PaymentError>(undefined);
-  const { basket } = useCore();
+  const { basket, http } = useCore();
   const formRef = useRef<HTMLFormElement>(null);
   const onSubmit = useCallback(
     async (e: FormEvent) => {
@@ -47,25 +47,22 @@ export default observer(function PaymentPageView({
         return;
       }
 
-      await fetch("https://gripster-pro.ru/tut/mail.php", {
-        headers: { "Content-Type": "application/json" },
-        method: "POST",
-        body: JSON.stringify({
-          ...values,
-          basket: {
-            price: basket.price,
-            total: basket.total,
-            gr: basket.gr,
-            grPro: basket.grPro,
+      await http
+        .post({
+          url: "https://gripster-pro.ru/tut/mail.php",
+          body: {
+            ...values,
+            basket: {
+              price: basket.price,
+              total: basket.total,
+              gr: basket.gr,
+              grPro: basket.grPro,
+            },
           },
-        }),
-      })
-        .then((r) => {
-          if (r.ok) {
-            setState(PaymentState.Success);
-            return Promise.resolve();
-          }
-          return Promise.reject(r);
+        })
+        .then(() => {
+          setState(PaymentState.Success);
+          return Promise.resolve();
         })
         .catch((e) => {
           setState(PaymentState.Error);

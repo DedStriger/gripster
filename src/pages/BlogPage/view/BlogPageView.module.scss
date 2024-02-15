@@ -1,0 +1,42 @@
+.container{
+  border-radius: 12px;
+  background: linear-gradient(105.4deg, #f08223 6.72%, #ea592a 74.12%);
+  padding: 20px;
+  cursor: pointer;
+
+  h1{
+    font-size: 24px;
+    margin-bottom: 20px;
+    line-height: 28px;
+  }
+
+  p{
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+.more{
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color .3s;
+
+  &:hover{
+    color: var(--white)
+  }
+}
+
+.footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.date{
+  font-size: 16px;
+  font-weight: 500;
+}
