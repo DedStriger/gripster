@@ -1,5 +1,5 @@
 import GripsterPageView from "./view/GripsterPageView";
-
-export default function GripsterPage(){
-    return <GripsterPageView/>
-}
+import { observer } from "mobx-react-lite";
+export default observer(function GripsterPage() {
+  return <GripsterPageView />;
+});
