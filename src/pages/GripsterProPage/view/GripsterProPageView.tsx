@@ -1,51 +1,46 @@
 import styles from "./GripsterProPageView.module.scss";
-import { useSelector, useDispatch } from "react-redux";
 import Counter from "../../../components/Counter/Counter";
-import { rootCount } from "../../../service/countReducer";
-import {
-  GR_PRO_MINUS,
-  GR_PRO_PLUS,
-  UPDATE_GR_PRO,
-} from "../../../service/constant";
 import { useCallback, useState } from "react";
 import Colorpick from "../../../components/Colorpick/Colorpick";
-import { GrProColor } from "../../../service/basketReducer";
-import advantages from "../../../assets/advantages-pro.png";
-import advantagesRetina from "../../../assets/advantages-pro@2x.png";
-import variant from "../../../assets/pro-variants.png";
-import variantRetina from "../../../assets/pro-variants@2x.png";
-
-export default function GripsterProPageView() {
-  const [color, setColor] = useState<GrProColor>("red");
-  const count = useSelector(
-    (store: { count: rootCount }) => store.count.gripsterPro.count,
-  );
-  const dispatch = useDispatch();
+import {
+  AdvantagesProImg,
+  AdvantagesProRetinaImg,
+  VariantsProImg,
+  VariantsProRetinaImg,
+} from "../../../assets";
+import { useCount } from "../../../hooks/useCount";
+import { GrColor } from "../../../Core/types";
+import { useCore } from "../../../hooks/useCore";
+import { observer } from "mobx-react-lite";
+export default observer(function GripsterProPageView() {
+  const {
+    basket: { update, price },
+  } = useCore();
+  const [color, setColor] = useState<GrColor>("red");
+  const { count, plus, minus } = useCount();
   const onBuy = useCallback(() => {
-    dispatch({ type: UPDATE_GR_PRO, number: count, color: color });
-  }, [count, color, dispatch]);
+    update("grPro", count, color);
+  }, [count, color, update]);
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>
         Gripster <span>Pro</span>
       </h2>
       <img
-        src={variant}
-        srcSet={variantRetina + " 2x"}
+        src={VariantsProImg}
+        srcSet={VariantsProRetinaImg + " 2x"}
         className={styles.img}
         alt="product"
       />
       <div className={styles.row}>
-        <Counter
-          count={count}
-          plus={() => dispatch({ type: GR_PRO_PLUS })}
-          minus={() => dispatch({ type: GR_PRO_MINUS })}
-        />
+        <Counter count={count} plus={plus} minus={minus} />
         <Colorpick color={color} setColor={setColor} />
         <div className={styles.pay}>
           <div className={styles.price}>
-            <span>1399 ₽</span>
-            <span className={styles.price__cross}>1999 ₽</span>
+            <span>{price.grPro.price} ₽</span>
+            <span className={styles.price__cross}>
+              {price.grPro.oldPrice} ₽
+            </span>
           </div>
           <button onClick={onBuy} className={styles.btn}>
             В корзину
@@ -70,8 +65,8 @@ export default function GripsterProPageView() {
       </p>
       <img
         className={styles.advantages}
-        src={advantages}
-        srcSet={advantagesRetina + " 2x"}
+        src={AdvantagesProImg}
+        srcSet={AdvantagesProRetinaImg + " 2x"}
         alt="adv"
       />
       <div className={styles.head}>Характеристики</div>
@@ -89,4 +84,4 @@ export default function GripsterProPageView() {
       </p>
     </div>
   );
-}
+});

@@ -1,9 +1,9 @@
-import { GrProColor } from "../../service/basketReducer";
 import styles from "./Colorpick.module.scss";
+import { GrColor } from "../../Core/types";
 
 export type ColorpickProps = {
-  setColor: (val: GrProColor) => void;
-  color: GrProColor;
+  setColor: (val: GrColor) => void;
+  color: GrColor;
 };
 
 export default function Colorpick({ setColor, color }: ColorpickProps) {

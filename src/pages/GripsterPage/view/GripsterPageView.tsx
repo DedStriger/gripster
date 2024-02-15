@@ -1,41 +1,39 @@
 import styles from "./GripsterPageView.module.scss";
-import gripster from "../../../assets/gripster.png";
-import gripsterRetina from "../../../assets/gripster@2x.png";
-import advantages from "../../../assets/advantages.png";
-import advantagesRetina from "../../../assets/advantages@2x.png";
-import { useSelector, useDispatch } from "react-redux";
 import Counter from "../../../components/Counter/Counter";
-import { rootCount } from "../../../service/countReducer";
-import { GR_MINUS, GR_PLUS, UPDATE_GR } from "../../../service/constant";
 import { useCallback } from "react";
+import {
+  AdvantagesImg,
+  AdvantagesRetinaImg,
+  GripsterImg,
+  GripsterRetinaImg,
+} from "../../../assets";
+import { useCore } from "../../../hooks/useCore";
+import { useCount } from "../../../hooks/useCount";
+import { observer } from "mobx-react-lite";
 
-export default function GripsterPageView() {
-  const count = useSelector(
-    (store: { count: rootCount }) => store.count.gripster.count,
-  );
-  const dispatch = useDispatch();
+export default observer(function GripsterPageView() {
+  const {
+    basket: { update, price },
+  } = useCore();
+  const { count, plus, minus } = useCount();
   const onBuy = useCallback(() => {
-    dispatch({ type: UPDATE_GR, number: count });
-  }, [count, dispatch]);
+    update("gr", count);
+  }, [count, update]);
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Gripster</h2>
       <img
-        src={gripster}
-        srcSet={gripsterRetina + " 2x"}
+        src={GripsterImg}
+        srcSet={GripsterRetinaImg + " 2x"}
         className={styles.img}
         alt="product"
       />
       <div className={styles.row}>
-        <Counter
-          count={count}
-          plus={() => dispatch({ type: GR_PLUS })}
-          minus={() => dispatch({ type: GR_MINUS })}
-        />
+        <Counter count={count} plus={plus} minus={minus} />
         <div className={styles.pay}>
           <div className={styles.price}>
-            <span>999 ₽</span>
-            <span className={styles.price__cross}>1429 ₽</span>
+            <span>{price.gr.price} ₽</span>
+            <span className={styles.price__cross}>{price.gr.oldPrice} ₽</span>
           </div>
           <button onClick={onBuy} className={styles.btn}>
             В корзину
@@ -56,8 +54,8 @@ export default function GripsterPageView() {
       </p>
       <img
         className={styles.advantages}
-        src={advantages}
-        srcSet={advantagesRetina + " 2x"}
+        src={AdvantagesImg}
+        srcSet={AdvantagesRetinaImg + " 2x"}
         alt="adv"
       />
       <div className={styles.head}>Характеристики</div>
@@ -75,4 +73,4 @@ export default function GripsterPageView() {
       </p>
     </div>
   );
-}
+});

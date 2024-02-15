@@ -1,12 +1,14 @@
 import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
 import { DELIVERY_URL, CONTACTS_URL, BASKET_URL } from "../../utils/links";
-import { useBasketTotal } from "../../hooks/useBasketTotal";
 import { externalLinks } from "../../utils/externalLinks";
-import { BasketSvg, InstSvg, LogoSvg, VkSvg } from "../../assets";
-
-export default function Header() {
-  const basketTotal = useBasketTotal();
+import { BasketSvg, LogoSvg, VkSvg, YouTubeSvg } from "../../assets";
+import { useCore } from "../../hooks/useCore";
+import { observer } from "mobx-react-lite";
+export default observer(function Header() {
+  const {
+    basket: { total },
+  } = useCore();
   return (
     <>
       <div className={styles.adv}>
@@ -18,8 +20,8 @@ export default function Header() {
             <LogoSvg />
           </Link>
           <div className={styles.social}>
-            <a href={externalLinks.instagram} rel="noreferrer" target="_blank">
-              <InstSvg />
+            <a href={externalLinks.youTube} rel="noreferrer" target="_blank">
+              <YouTubeSvg />
             </a>
             <a href={externalLinks.vk} rel="noreferrer" target="_blank">
               <VkSvg />
@@ -36,8 +38,8 @@ export default function Header() {
             </Link>
           </div>
           <Link to={{ pathname: BASKET_URL }} className={styles.basket}>
-            {basketTotal > 0 && (
-              <span className={styles.basket__total}>{basketTotal}</span>
+            {total.count > 0 && (
+              <span className={styles.basket__total}>{total.count}</span>
             )}
             <BasketSvg />
           </Link>
@@ -45,4 +47,4 @@ export default function Header() {
       </div>
     </>
   );
-}
+});

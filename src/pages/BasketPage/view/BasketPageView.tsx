@@ -1,14 +1,13 @@
-import { GrProColor } from "../../../service/basketReducer";
 import styles from "./BasketPageView.module.scss";
-import { useDispatch } from "react-redux";
-import { DELETE } from "../../../service/constant";
 import { PAYMENT_URL } from "../../../utils/links";
 import { Link } from "react-router-dom";
 import { CrossSvg } from "../../../assets";
-
+import { GrColor, GRKind } from "../../../Core/types";
+import { observer } from "mobx-react-lite";
 export type BasketPageViewProps = {
   rows: Rows[];
   total: number;
+  remove: (type: GRKind, color?: GrColor) => void;
 };
 
 type Rows = {
@@ -18,12 +17,15 @@ type Rows = {
 
 type RowsInfo = {
   count: number;
-  color?: GrProColor;
+  color?: GrColor;
   price: number;
 };
 
-export default function BasketPageView({ rows, total }: BasketPageViewProps) {
-  const dispatch = useDispatch();
+export default observer(function BasketPageView({
+  rows,
+  total,
+  remove,
+}: BasketPageViewProps) {
   return (
     <div className={styles.container}>
       {rows.map((row) => (
@@ -54,12 +56,8 @@ export default function BasketPageView({ rows, total }: BasketPageViewProps) {
                   className={styles.close}
                   onClick={() =>
                     row.name === "Gripster"
-                      ? dispatch({ type: DELETE, deleteType: "gr" })
-                      : dispatch({
-                          type: DELETE,
-                          deleteType: "qrpro",
-                          color: i.color,
-                        })
+                      ? remove("gr")
+                      : remove("gr", i.color)
                   }
                 />
               )}
@@ -80,4 +78,4 @@ export default function BasketPageView({ rows, total }: BasketPageViewProps) {
       </div>
     </div>
   );
-}
+});
