@@ -1,15 +1,15 @@
-@import './colors.scss';
+@import "./colors.scss";
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-body, html{
+body,
+html {
   background-color: var(--black);
 }
 
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;

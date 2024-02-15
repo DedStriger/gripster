@@ -1,1 +1,1 @@
-export {default} from './GripsterProPage'
+export { default } from "./GripsterProPage";
