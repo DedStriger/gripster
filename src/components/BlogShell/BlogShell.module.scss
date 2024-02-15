@@ -1,5 +1,6 @@
 .container {
   margin: 40px auto;
+  padding-bottom: 40px;
   max-width: 1010px;
   width: 100%;
   position: relative;
@@ -44,14 +45,14 @@
 
 @media (max-width: 1050px) {
   .container {
-    margin: 20px;
+    margin: 60px 20px 20px;
     width: auto;
   }
 }
 
 @media(max-width: 850px){
   .container{
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .promo{
