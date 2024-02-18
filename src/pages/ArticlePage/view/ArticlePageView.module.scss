@@ -1,0 +1,47 @@
+.container {
+  border-radius: 12px;
+  background: linear-gradient(105.4deg, #f08223 6.72%, #ea592a 74.12%);
+  padding: 20px;
+}
+
+.content{
+  h1{
+    font-size: 32px;
+    margin-bottom: 28px;
+  }
+
+  p{
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
+
+  h2{
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+.footer{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__from{
+    font-weight: bold;
+    font-size: 16px;
+    color:var(--white);
+    transition: color .3s;
+
+    &:hover{
+      color: var(--white);
+    }
+  }
+
+  &__date{
+    font-weight: 500;
+    font-size: 16px;
+  }
+}

@@ -4,6 +4,7 @@ export { ReactComponent as LogoSvg } from "./logo.svg";
 export { ReactComponent as BasketSvg } from "./basket.svg";
 export { ReactComponent as VkSvg } from "./vk.svg";
 export { ReactComponent as YouTubeSvg } from "./you-tube.svg";
+export { ReactComponent as BurgerSvg } from "./burger.svg";
 export { default as GripsterImg } from "./gripster.png";
 export { default as GripsterRetinaImg } from "./gripster@2x.png";
 export { default as GripsterProImg } from "./gripster-pro.png";
