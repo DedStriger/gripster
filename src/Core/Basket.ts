@@ -66,7 +66,7 @@ export class Basket {
   }
 
   @action.bound
-  delete = (type: GRKind, color?: GrColor) => {
+  remove = (type: GRKind, color?: GrColor) => {
     if (type === "gr") {
       this._gr = INITIAL_GR;
     }

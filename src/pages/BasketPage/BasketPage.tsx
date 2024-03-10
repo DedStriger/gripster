@@ -3,7 +3,9 @@ import { useMemo } from "react";
 import { useCore } from "../../hooks/useCore";
 import { observer } from "mobx-react-lite";
 export default observer(function BasketPage() {
-  const { basket } = useCore();
+  const {
+    basket: { gr, grPro, price, remove, total },
+  } = useCore();
   const info = useMemo(
     () => ({
       rows: [
@@ -11,30 +13,26 @@ export default observer(function BasketPage() {
           name: "Gripster",
           info: [
             {
-              count: basket.gr.count,
-              price: basket.gr.count * basket.price.gr.price,
+              count: gr.count,
+              price: gr.count * price.gr.price,
             },
           ],
         },
         {
           name: "Gripster <span>Pro</span>",
           info:
-            basket.grPro.length === 0
+            grPro.length === 0
               ? [{ count: 0, price: 0 }]
-              : basket.grPro.map((i) => ({
+              : grPro.map((i) => ({
                   ...i,
-                  price: i.count * basket.price.grPro.price,
+                  price: i.count * price.grPro.price,
                 })),
         },
       ],
     }),
-    [basket],
+    [gr, grPro, price]
   );
   return (
-    <BasketPageView
-      total={basket.total.price}
-      remove={basket.delete}
-      rows={info.rows}
-    />
+    <BasketPageView total={total.price} remove={remove} rows={info.rows} />
   );
 });
