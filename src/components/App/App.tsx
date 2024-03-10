@@ -21,9 +21,13 @@ import GripsterProPage from "../../pages/GripsterProPage";
 import PaymentPage from "../../pages/PaymentPage";
 import BlogPage from "../../pages/BlogPage/BlogPage";
 import ArticlePage from "../../pages/ArticlePage/ArticlePage";
+import { useEffect } from "react";
 
 export default function App() {
   const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
   return (
     <div className={styles.container}>
       <Header />

@@ -5,6 +5,7 @@ export type Article = {
   preview?: string;
   text: string;
   from: string;
+  img?: string;
 };
 
 export type GetArticlesResponse = {
